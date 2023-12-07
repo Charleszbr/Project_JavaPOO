@@ -27,10 +27,12 @@ public class Main {
         ennemiGuerrier.attaquerAvecRage(nouveauJoueur); // Attaque avec 'rage'
 
         // Testons l'interaction avec la potion
-
         Potion potion = new Potion("Potion de Soin", 20);
 
         potion.interact(joueur);
+
+        // Utilisation de la surcharge de la méthode attaquer
+        joueur.attaquer(nouveauJoueur, 10); // Attaque avec un bonus de 10 points de dégâts
 
         // D'autres tests et interactions possibles ici
     }

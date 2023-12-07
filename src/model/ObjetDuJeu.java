@@ -1,6 +1,6 @@
 package model;
 
-public abstract class ObjetDuJeu {
+public abstract class ObjetDuJeu implements Interactable {
     protected String nom;
 
     public ObjetDuJeu(String nom) {
@@ -11,6 +11,12 @@ public abstract class ObjetDuJeu {
         return nom;
     }
 
-    // Autres méthodes et attributs communs aux objets du jeu
-    // Ajoutez ici d'autres fonctionnalités spécifiques à la classe abstraite ObjetDuJeu
+    // ... autres méthodes et attributs communs aux objets du jeu
+
+    // Méthode de l'interface Interactable
+    @Override
+    public void interact(Personnage personnage) {
+        System.out.println(personnage.getNom() + " interagit avec l'objet " + getNom() + ".");
+        // Logique spécifique à l'interaction avec l'objet
+    }
 }
