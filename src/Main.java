@@ -1,39 +1,66 @@
+import java.util.Scanner;
 import model.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Testons les classes de base ici
-        Joueur joueur = new Joueur("Joueur", 100, 20);
-        Ennemi ennemi = new Ennemi("Ennemi", 50, 10);
-        Objet objet = new Objet("Potion");
-        Arme arme = new Arme("Épée", Arme.Rarete.COMMUN);
+        Scanner scanner = new Scanner(System.in);
+        Joueur joueur = null;
 
-        // Testons la méthode ameliorerArme
-        arme.ameliorerArme();
-        arme.ameliorerArme();
+        boolean quitter = false;
+        while (!quitter) {
+            System.out.println();
+            System.out.println("=== MENU PRINCIPAL ===");
+            System.out.println("1. Créer un personnage");
+            System.out.println("2. Lancer une partie");
+            System.out.println("3. Aller dans la boutique");
+            System.out.println("4. Quitter le jeu");
+            System.out.print("Choisissez une option : ");
 
-        // Testons la méthode genererButin pour un ennemi tué
-        joueur.ramasserButin(ennemi);
+            int choix = scanner.nextInt();
 
-        // Testons les nouvelles sous-classes et leurs méthodes
-        Joueur nouveauJoueur = new Joueur("Nouveau Joueur", 150, 25);
-        EnnemiGuerrier ennemiGuerrier = new EnnemiGuerrier("Guerrier", 60, 15, "Épée tranchante");
-        EnnemiSorcier ennemiSorcier = new EnnemiSorcier("Sorcier", 40, 12, "Boule de feu");
+            switch (choix) {
+                case 1:
+                    joueur = creerPersonnage();
+                    break;
+                case 2:
+                    if (joueur != null) {
+                        lancerPartie(joueur);
+                    } else {
+                        System.out.println();
+                        System.out.println("Veuillez créer un personnage d'abord.");
+                    }
+                    break;
+                case 3:
+                    Boutique.boutiqueMenu(joueur);
+                    break;
+                case 4:
+                    quitter = true;
+                    break;
+                default:
+                    System.out.println();
+                    System.out.println("Option invalide. Veuillez réessayer.");
+            }
+        }
+        System.out.println();
+        System.out.println("Merci d'avoir joué !");
+    }
 
-        nouveauJoueur.ramasserButin(ennemiGuerrier);
+    private static Joueur creerPersonnage() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        System.out.print("Entrez le nom du joueur : ");
+        String nom = scanner.nextLine();
 
-        // Testons la compétence 'rage' de l'ennemiGuerrier
-        ennemiGuerrier.utiliserCompetence(); // Active la compétence
-        ennemiGuerrier.attaquerAvecRage(nouveauJoueur); // Attaque avec 'rage'
+        // Points de vie et force fixés à des valeurs prédéfinies
+        int pointsDeVie = 100;
+        int force = 10;
 
-        // Testons l'interaction avec la potion
-        Potion potion = new Potion("Potion de Soin", 20);
+        return new Joueur(nom, pointsDeVie, force);
+    }
 
-        potion.interact(joueur);
-
-        // Utilisation de la surcharge de la méthode attaquer
-        joueur.attaquer(nouveauJoueur, 10); // Attaque avec un bonus de 10 points de dégâts
-
-        // D'autres tests et interactions possibles ici
+    private static void lancerPartie(Joueur joueur) {
+        // Implémenter la logique pour lancer une partie
+        System.out.println();
+        System.out.println("La partie est lancée pour le joueur : " + joueur.getNom());
     }
 }
