@@ -20,8 +20,22 @@ public class Personnage {
     }
 
     public void attaquer(Personnage cible) {
-        System.out.println(getNom() + " attaque " + cible.getNom() + ".");
-        // Logique pour l'attaque normale
+        System.out.println(getNom() + " attaque " + cible.getNom() + " avec une attaque normale.");
+        cible.subirDegats(force);
+    }
+
+    // Surcharge de la méthode attaquer avec différentes signatures
+    public void attaquer(Personnage cible, int bonus) {
+        System.out.println(getNom() + " attaque " + cible.getNom() + " avec un bonus de " + bonus + " points de dégâts.");
+        cible.subirDegats(force + bonus);
+    }
+
+    public void attaquer(ObjetDuJeu objet) {
+        System.out.println(getNom() + " interagit avec l'objet " + objet.getNom() + ".");
+        // Logique spécifique à l'interaction avec l'objet
+        if (objet instanceof Interactable) {
+            ((Interactable) objet).interact(this);
+        }
     }
 
     public void subirDegats(int degats) {
@@ -29,5 +43,5 @@ public class Personnage {
         System.out.println(getNom() + " subit " + degats + " dégâts.");
     }
 
-    // Autres méthodes et attributs spécifiques à Personnage
+    // ... autres méthodes et attributs
 }
