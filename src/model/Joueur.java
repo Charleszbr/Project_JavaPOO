@@ -8,6 +8,15 @@ public class Joueur extends Personnage {
         this.nombreDePieces = 0;
     }
 
+    public void gagnerPointsDeVie(int points) {
+        pointsDeVie += points;
+    }
+
+    // Ajout de la méthode pour refléter l'idée de gagner des points de vie
+    public void gainHealthPoints(int points) {
+        gagnerPointsDeVie(points);
+    }
+
     public void ramasserButin(Ennemi ennemi) {
         int nombreDePieces = ennemi.genererButin();
         this.nombreDePieces += nombreDePieces;
