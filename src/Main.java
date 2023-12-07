@@ -26,6 +26,12 @@ public class Main {
         ennemiGuerrier.utiliserCompetence(); // Active la compétence
         ennemiGuerrier.attaquerAvecRage(nouveauJoueur); // Attaque avec 'rage'
 
+        // Testons l'interaction avec la potion
+
+        Potion potion = new Potion("Potion de Soin", 20);
+
+        potion.interact(joueur);
+
         // D'autres tests et interactions possibles ici
     }
 }

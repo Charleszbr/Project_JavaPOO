@@ -2,7 +2,7 @@ package model;
 
 public class Personnage {
     private String nom;
-    private int pointsDeVie;
+    public int pointsDeVie;
     private int force;
 
     public Personnage(String nom, int pointsDeVie, int force) {
