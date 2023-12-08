@@ -2,10 +2,18 @@ package model;
 
 import java.util.Scanner;
 
+/**
+ * Classe représentant l'introduction de l'histoire et les choix du joueur au début de l'aventure.
+ */
 public class IntroductionHistoire {
 
     private static final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Méthode pour lancer l'introduction de l'histoire et permettre au joueur de choisir son chemin.
+     *
+     * @param joueur Le joueur qui commence l'aventure.
+     */
     public static void lancerIntroduction(Joueur joueur) {
         System.out.println();
         System.out.println("=== La Quête du Héros ===");
@@ -29,6 +37,11 @@ public class IntroductionHistoire {
         }
     }
 
+    /**
+     * Méthode pour représenter le Chemin de la Forêt avec des événements spécifiques.
+     *
+     * @param joueur Le joueur qui explore le Chemin de la Forêt.
+     */
     private static void cheminForet(Joueur joueur) {
         System.out.println("Vous avez choisi le Chemin de la Forêt.");
         System.out.println("Vous entrez dans la forêt mystique...");
@@ -42,9 +55,13 @@ public class IntroductionHistoire {
         System.out.println("Soudain, un ennemi apparaît !");
         Ennemi ennemiForet = new Ennemi("Garde de la Forêt", 30, 10);
         Combat.lancerCombat(joueur, ennemiForet, scanner);
-
     }
 
+    /**
+     * Méthode pour représenter le Chemin de la Montagne avec des événements spécifiques.
+     *
+     * @param joueur Le joueur qui explore le Chemin de la Montagne.
+     */
     private static void cheminMontagne(Joueur joueur) {
         System.out.println("Vous avez choisi le Chemin de la Montagne.");
         System.out.println("Vous commencez à gravir les montagnes escarpées...");
@@ -53,7 +70,9 @@ public class IntroductionHistoire {
         // Par exemple, des rencontres, des coffres, etc.
     }
 
-    // Ajoutez cette méthode pour fermer le scanner à la fin de l'exécution du programme
+    /**
+     * Méthode pour fermer le scanner à la fin de l'exécution du programme.
+     */
     public static void fermerScanner() {
         scanner.close();
     }

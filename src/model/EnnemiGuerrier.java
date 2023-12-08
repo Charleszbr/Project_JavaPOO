@@ -2,13 +2,21 @@ package model;
 
 public class EnnemiGuerrier extends Ennemi {
 
-    // Constructeur
+    /**
+     * Constructeur de la classe EnnemiGuerrier.
+     *
+     * @param nom         Le nom de l'ennemi guerrier.
+     * @param pointsDeVie Les points de vie de l'ennemi guerrier.
+     * @param force       La force de l'ennemi guerrier.
+     */
     public EnnemiGuerrier(String nom, int pointsDeVie, int force) {
         super(nom, pointsDeVie, force);
         genererArmeAleatoire();
     }
 
-    // Méthode pour générer une arme aléatoire
+    /**
+     * Méthode privée pour générer une arme aléatoire pour l'ennemi guerrier.
+     */
     private void genererArmeAleatoire() {
         double randomValue = Math.random();
         if (randomValue < 0.5) {
@@ -18,7 +26,11 @@ public class EnnemiGuerrier extends Ennemi {
         }
     }
 
-    // Méthode pour générer une rareté aléatoire
+    /**
+     * Méthode privée pour générer une rareté aléatoire pour l'arme de l'ennemi guerrier.
+     *
+     * @return La rareté générée aléatoirement.
+     */
     private Arme.Rarete genererRareteAleatoire() {
         double randomValue = Math.random();
         if (randomValue < 0.2) {

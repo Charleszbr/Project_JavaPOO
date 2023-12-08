@@ -5,6 +5,13 @@ public class Arme {
     private int degats;
     private Rarete rarete;
 
+    /**
+     * Constructeur de la classe Arme.
+     *
+     * @param nom    Le nom de l'arme.
+     * @param rarete La rareté de l'arme (enum Rarete).
+     * @throws IllegalArgumentException Si le nom de l'arme est nul ou vide.
+     */
     public Arme(String nom, Rarete rarete) {
         // Validation que le nom n'est pas nul ou vide
         if (nom != null && !nom.isEmpty()) {
@@ -16,6 +23,12 @@ public class Arme {
         this.degats = assignerDegats(rarete);
     }
 
+    /**
+     * Méthode privée pour assigner des dégâts basés sur la rareté de l'arme.
+     *
+     * @param rarete La rareté de l'arme.
+     * @return Le nombre de dégâts assignés.
+     */
     private int assignerDegats(Rarete rarete) {
         switch (rarete) {
             case COMMUN:
@@ -33,6 +46,9 @@ public class Arme {
         }
     }
 
+    /**
+     * Méthode pour améliorer la rareté et les dégâts de l'arme.
+     */
     public void ameliorerArme() {
         if (rarete.ordinal() < Rarete.LEGENDAIRE.ordinal()) {
             rarete = Rarete.values()[rarete.ordinal() + 1];
@@ -45,10 +61,21 @@ public class Arme {
 
     // ... autres méthodes et attributs spécifiques à Arme
 
+    /**
+     * Getter pour le nom de l'arme.
+     *
+     * @return Le nom de l'arme.
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Setter pour le nom de l'arme avec validation.
+     *
+     * @param nom Le nouveau nom de l'arme.
+     * @throws IllegalArgumentException Si le nouveau nom est nul ou vide.
+     */
     public void setNom(String nom) {
         // Validation que le nom n'est pas nul ou vide
         if (nom != null && !nom.isEmpty()) {
@@ -58,18 +85,38 @@ public class Arme {
         }
     }
 
+    /**
+     * Getter pour la rareté de l'arme.
+     *
+     * @return La rareté de l'arme.
+     */
     public Rarete getRarete() {
         return rarete;
     }
 
+    /**
+     * Setter pour la rareté de l'arme.
+     *
+     * @param rarete La nouvelle rareté de l'arme.
+     */
     public void setRarete(Rarete rarete) {
         this.rarete = rarete;
     }
 
+    /**
+     * Getter pour les dégâts de l'arme.
+     *
+     * @return Le nombre de dégâts de l'arme.
+     */
     public int getDegats() {
         return degats;
     }
 
+    /**
+     * Setter pour les dégâts de l'arme.
+     *
+     * @param degats Le nouveau nombre de dégâts de l'arme.
+     */
     public void setDegats(int degats) {
         this.degats = degats;
     }
