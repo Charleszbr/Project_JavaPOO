@@ -1,6 +1,6 @@
 package model;
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 public class Boutique {
     public static void boutiqueMenu(Joueur joueur) {

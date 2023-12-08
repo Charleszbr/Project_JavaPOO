@@ -1,0 +1,3 @@
+Nom: Charles
+Points de Vie: 140
+Force: 10
