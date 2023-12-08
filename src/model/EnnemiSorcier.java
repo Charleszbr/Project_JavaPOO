@@ -9,6 +9,10 @@ public class EnnemiSorcier extends Ennemi {
     }
 
     public void lancerSort() {
-        System.out.println(super.getNom() + " lance un sort magique.");
+        System.out.println(super.getNom() + " lance un sort magique de type " + typeSort + ".");
+    }
+
+    public String getTypeSort() {
+        return typeSort;
     }
 }

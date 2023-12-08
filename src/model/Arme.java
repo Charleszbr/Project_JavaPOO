@@ -6,7 +6,12 @@ public class Arme {
     private Rarete rarete;
 
     public Arme(String nom, Rarete rarete) {
-        this.nom = nom;
+        // Validation que le nom n'est pas nul ou vide
+        if (nom != null && !nom.isEmpty()) {
+            this.nom = nom;
+        } else {
+            throw new IllegalArgumentException("Le nom de l'arme ne peut pas être nul ou vide.");
+        }
         this.rarete = rarete;
         this.degats = assignerDegats(rarete);
     }
@@ -28,8 +33,6 @@ public class Arme {
         }
     }
 
-    // Autres méthodes et attributs spécifiques à Arme
-
     public void ameliorerArme() {
         if (rarete.ordinal() < Rarete.LEGENDAIRE.ordinal()) {
             rarete = Rarete.values()[rarete.ordinal() + 1];
@@ -38,6 +41,37 @@ public class Arme {
         } else {
             System.out.println("L'arme est déjà à la rareté maximale (LÉGENDAIRE).");
         }
+    }
+
+    // ... autres méthodes et attributs spécifiques à Arme
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        // Validation que le nom n'est pas nul ou vide
+        if (nom != null && !nom.isEmpty()) {
+            this.nom = nom;
+        } else {
+            throw new IllegalArgumentException("Le nom de l'arme ne peut pas être nul ou vide.");
+        }
+    }
+
+    public Rarete getRarete() {
+        return rarete;
+    }
+
+    public void setRarete(Rarete rarete) {
+        this.rarete = rarete;
+    }
+
+    public int getDegats() {
+        return degats;
+    }
+
+    public void setDegats(int degats) {
+        this.degats = degats;
     }
 
     // Énumération pour les raretés d'arme
